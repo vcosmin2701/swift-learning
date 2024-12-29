@@ -38,12 +38,25 @@ class BankTransfer: PaymentMethod {
     }
 }
 
+// New payment method
+class ApplePay: PaymentMethod {
+    func processPayment(amount: Double) {
+        print("Processing Apple Pay payment of $\(amount)")
+        print("Fee applied: $\(fee)")
+    }
+    
+    var fee: Double {
+        return 1.5
+    }
+}
+
 // Create the Factory
 
 enum PaymentMethodType {
     case creditCard
     case paypal
     case bankTransfer
+    case applePay
 }
 
 class PaymentMethodFactory {
@@ -55,6 +68,8 @@ class PaymentMethodFactory {
             return PayPal()
         case .bankTransfer:
             return BankTransfer()
+        case .applePay:
+            return ApplePay()
         }
     }
 }
@@ -73,3 +88,4 @@ let processor = PaymentProcessor()
 processor.processPayment(amount: 100.0, methodType: .creditCard)
 processor.processPayment(amount: 50.0, methodType: .paypal)
 processor.processPayment(amount: 1000.0, methodType: .bankTransfer)
+processor.processPayment(amount: 350, methodType: .applePay)
