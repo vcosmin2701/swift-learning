@@ -12,6 +12,13 @@ protocol Character {
 
 enum CharacterType {
     case warrior
+    case mage
+    case archer
+}
+
+enum CharacterError: Error {
+    case invalidCharacterType
+    case characterCreationFailed
 }
 
 class Warrior: Character {
@@ -41,21 +48,34 @@ class Warrior: Character {
 }
 
 class CharacterFactory { 
-    static func createCharacter(character: CharacterType) -> Character {
+    static func createCharacter(character: CharacterType) throws -> Character {
         switch character {
             case .warrior:
                 return Warrior()
+            default:
+                throw CharacterError.invalidCharacterType
         }
     }
 }
 
 class CharacterProcessor {
-    func attackOfCharacter(character: CharacterType) {
-        let character = CharacterFactory.createCharacter(character: character)
+    private let character: Character
+
+    init(characterType: CharacterType) throws {
+        self.character = try CharacterFactory.createCharacter(character: characterType)
+    }
+
+    func attackOfCharacter() {
         character.attack()
+        print("HP remaining: \(character.HP)")
+        print("MP remaining: \(character.MP)")
+    }
+
+    func defendCharacter() {
+        character.defend()
     }
 }
 
-let gameShowcase = CharacterProcessor()
+let player = try CharacterProcessor(characterType: .warrior)
 
-gameShowcase.attackOfCharacter(character: .warrior)
+player.attackOfCharacter()
