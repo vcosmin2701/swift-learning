@@ -10,7 +10,7 @@ class CreditCard: PaymentMethod {
         print("Processing credit card payment of $\(amount)")
         print("Fee applied: $\(fee)")
     }
-    
+
     var fee: Double {
         return 2.5
     }
@@ -21,7 +21,7 @@ class PayPal: PaymentMethod {
         print("Processing PayPal payment of $\(amount)")
         print("Fee applied: $\(fee)")
     }
-    
+
     var fee: Double {
         return 3.0
     }
@@ -32,7 +32,7 @@ class BankTransfer: PaymentMethod {
         print("Processing bank transfer of $\(amount)")
         print("Fee applied: $\(fee)")
     }
-    
+
     var fee: Double {
         return 1.0
     }
@@ -44,7 +44,7 @@ class ApplePay: PaymentMethod {
         print("Processing Apple Pay payment of $\(amount)")
         print("Fee applied: $\(fee)")
     }
-    
+
     var fee: Double {
         return 1.5
     }

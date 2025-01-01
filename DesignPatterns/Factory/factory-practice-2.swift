@@ -47,13 +47,13 @@ class Warrior: Character {
     }
 }
 
-class CharacterFactory { 
+class CharacterFactory {
     static func createCharacter(character: CharacterType) throws -> Character {
         switch character {
-            case .warrior:
-                return Warrior()
-            default:
-                throw CharacterError.invalidCharacterType
+        case .warrior:
+            return Warrior()
+        default:
+            throw CharacterError.invalidCharacterType
         }
     }
 }
