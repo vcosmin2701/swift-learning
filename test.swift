@@ -1,4 +1,4 @@
-struct userAccount {
+struct UserAccount {
     var userName: String
     var userAge: Int
     var isActive: Bool
@@ -23,5 +23,5 @@ struct userAccount {
     }
 }
 
-let newUser = userAccount(userName: "john", userAge: 25, isActive: true)
+let newUser = UserAccount(userName: "john", userAge: 25, isActive: true)
 newUser.printUserDetails()
