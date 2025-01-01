@@ -4,10 +4,10 @@ protocol Character {
     func attack()
     func defend()
 
-    var HP:Int { get }
-    var MP:Int { get }
-    var weaponType:String { get }
-    var armorType:String { get }
+    var HP: Int { get }
+    var MP: Int { get }
+    var weaponType: String { get }
+    var armorType: String { get }
 }
 
 enum CharacterType {
@@ -30,30 +30,30 @@ class Warrior: Character {
         print("Warrior is defending.")
     }
 
-    var HP:Int {
+    var HP: Int {
         return 100
     }
 
-    var MP:Int {
+    var MP: Int {
         return 57
     }
 
-    var weaponType:String {
+    var weaponType: String {
         return "Sword"
     }
 
-    var armorType:String {
+    var armorType: String {
         return "Strong"
     }
 }
 
-class CharacterFactory { 
+class CharacterFactory {
     static func createCharacter(character: CharacterType) throws -> Character {
         switch character {
-            case .warrior:
-                return Warrior()
-            default:
-                throw CharacterError.invalidCharacterType
+        case .warrior:
+            return Warrior()
+        default:
+            throw CharacterError.invalidCharacterType
         }
     }
 }
