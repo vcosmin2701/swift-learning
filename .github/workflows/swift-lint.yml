@@ -1,22 +1,17 @@
 name: Swift Lint
 
 on:
- push:
-   branches: [ main ]
- pull_request:
-   branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
- lint:
-   runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-latest
 
-   steps:
-   - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-   - name: Install SwiftLint
-     run: |
-       sudo apt-get update
-       sudo apt-get install swiftlint
-
-   - name: Run SwiftLint
-     run: swiftlint lint --strict
+    - name: Run SwiftLint
+      uses: norio-nomura/action-swiftlint@3.2.1
