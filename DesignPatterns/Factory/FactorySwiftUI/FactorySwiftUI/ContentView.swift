@@ -2,13 +2,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            VStack(spacing: 20) {
+                CardFactory.createCard(
+                    type: .news(
+                        headline: "Breaking News!",
+                        summary: "Swift is a wonderful language")
+                )
+                
+                CardFactory.createCard(
+                    type: .product(
+                        name: "Freak Hoodie",
+                        price: 99.99,
+                        imageUrl: "freak in hoodie")
+                )
+            }
         }
-        .padding()
     }
 }
 
