@@ -18,5 +18,7 @@ class UserViewModel: ObservableObject {
         } catch {
             self.error = .invalidResponse
         }
+        
+        isLoading = false
     }
 }
