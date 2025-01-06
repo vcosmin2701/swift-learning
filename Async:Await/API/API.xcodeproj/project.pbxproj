@@ -16,6 +16,11 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		3CB170FF2D2BE17A00C2BC6B /* Service */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			children = (
 				3CB170EC2D2BE0EE00C2BC6B /* API */,
 				3CB170EB2D2BE0EE00C2BC6B /* Products */,
+				3CB170FF2D2BE17A00C2BC6B /* Service */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3CB170EC2D2BE0EE00C2BC6B /* API */,
+				3CB170FF2D2BE17A00C2BC6B /* Service */,
 			);
 			name = API;
 			packageProductDependencies = (
