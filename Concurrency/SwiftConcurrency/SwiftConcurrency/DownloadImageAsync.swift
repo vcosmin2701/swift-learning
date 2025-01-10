@@ -17,8 +17,8 @@ class DownloadImageAsyncImageLoader {
         // URLSession.shared.dataTask(with: url) executes as soon as we call the func
         
         // { data, response, error in .. executes when data is received
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            let image = self?.handleResponse(data: data, response: response)
+        URLSession.shared.dataTask(with: url) { [self] data, response, error in
+            let image = self.handleResponse(data: data, response: response)
             completionHandler(image, error)
         }
         .resume()
